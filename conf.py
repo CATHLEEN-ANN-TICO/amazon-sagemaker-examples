@@ -39,7 +39,16 @@ nbsphinx_execute = "never"
 
 
 # Add any paths that contain templates here, relative to this directory.
+# The _templates/layout.html override injects a note at the top of every page
+# stating that this site holds only the SDK v3 example notebooks, and pointing at
+# the v2 build for the archived SDK 2.x notebooks.
 templates_path = ["_templates"]
+
+# Serve robots.txt at the docs site root. ReadTheDocs serves robots.txt only from
+# the default version, so it must live on this V3/default build (not the v2-archive
+# build). It opts the deprecated V2 notebooks (/en/v2/) out of AI-training crawls.
+# Sphinx copies files listed here verbatim into the build root.
+html_extra_path = ["robots.txt"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
